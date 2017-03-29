@@ -1,24 +1,3 @@
-> *************************************************************
-> *                                                           *
-> *       ________  __    __  ________    ____       ______   *
-> *      /_/_/_/_/ /_/   /_/ /_/_/_/_/  _/_/_/_   __/_/_/_/   *
-> *     /_/_____  /_/___/_/    /_/    /_/___/_/  /_/          *
-> *    /_/_/_/_/   /_/_/_/    /_/    /_/_/_/_/  /_/           *
-> *   ______/_/       /_/    /_/    /_/   /_/  /_/____        *
-> *  /_/_/_/_/       /_/    /_/    /_/   /_/    /_/_/_/ . io  *
-> *                                                           *
-> *************************************************************
-
-This development test is used as part of Sytac selection for Java developers. You are requested to develop a simple TwitterStatistics that covers all the requirements listed below. To have an indication of the criteria that will be used to judge your submission, all the following are considered as metrics of good development:
-
-+ Correctness of the implementation
-+ Decent test coverage
-+ Code cleanliness
-+ Efficiency of the solution
-+ Careful choice of tools and data formats
-+ Use of production-ready approaches
-
-While no specific time limit is mandated to complete the exercise, you will be asked to provide your code within a given deadline from Sytac HR. You are free to choose any library as long as it can run on the JVM.
 
 
 ## Task ##
@@ -46,10 +25,6 @@ We would like you to write code that will cover the functionality explained belo
 + All the above infomation is provided in either SDTOUT or a log file
 + You are free to choose the output format, provided that it makes it easy to parse and process by a machine
 
-### __Bonus points for:__ ###
-
-+ Keep track of messages per second statistics across multiple runs of the TwitterStatistics
-+ The TwitterStatistics can run as a Docker container
 
 ## Provided functionality ##
 
