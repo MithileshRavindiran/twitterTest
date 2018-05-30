@@ -1,5 +1,6 @@
 package com.twitter;
 
+import com.google.api.client.http.*;
 import com.twitter.statistics.model.Tweet;
 import com.twitter.statistics.model.TwitterUser;
 import com.twitter.statistics.oauth.TwitterAuthenticationException;
@@ -8,7 +9,6 @@ import com.twitter.statistics.processing.TweetsDeserializer;
 import com.twitter.statistics.processing.TweetsProcessor;
 import com.twitter.statistics.processing.TweetsRetriever;
 import com.twitter.statistics.view.TweetsPrinter;
-import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
