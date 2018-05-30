@@ -1,19 +1,21 @@
 package com.twitter;
 
-import com.google.api.client.http.*;
 import com.twitter.statistics.model.Tweet;
 import com.twitter.statistics.model.TwitterUser;
 import com.twitter.statistics.oauth.TwitterAuthenticationException;
 import com.twitter.statistics.oauth.TwitterAuthenticator;
-import com.twitter.statistics.view.TweetsPrinter;
 import com.twitter.statistics.processing.TweetsDeserializer;
 import com.twitter.statistics.processing.TweetsProcessor;
 import com.twitter.statistics.processing.TweetsRetriever;
+import com.twitter.statistics.view.TweetsPrinter;
+import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
@@ -52,10 +54,10 @@ public class TwitterStatistics {
         logger.info("Starting tracking on: {}", stringToTrack);
         logger.info("Tracking for {} tweets or {} seconds", maxMessages, trackingTimeout);
 
-        GenericUrl url = new GenericUrl(TRACKING_URL + stringToTrack);
+        GenericUrl url = new GenericUrl("https://stream.twitter.com/1.1/statuses/filter.json?track=beiber");
         HttpRequest request = requestFactory.buildGetRequest(url);
         HttpResponse httpResponse = request.execute();
-
+        BufferedReader reader = new BufferedReader(new InputStreamReader(httpResponse.getContent()));
         if (httpResponse.getStatusCode() == HttpStatusCodes.STATUS_CODE_OK) {
 
             startTracking(httpResponse.getContent(), maxMessages, trackingTimeout);
@@ -112,14 +114,13 @@ public class TwitterStatistics {
     }
 
 
-
     private BiConsumer<TwitterUser, SortedSet<Tweet>> printAuthorAndMessages = (author, authorMessages) -> {
 
         System.out.println("---------------------------");
         System.out.println("Messages Grouped By Authors");
         System.out.println("---------------------------");
         tweetsPrinter = new TweetsPrinter();
-        tweetsPrinter.print(author,authorMessages);
+        tweetsPrinter.print(author, authorMessages);
 
     };
 }

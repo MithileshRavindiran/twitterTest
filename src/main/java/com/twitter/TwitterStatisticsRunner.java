@@ -6,9 +6,8 @@ import java.io.IOException;
 
 /**
  * Application entry point
- * 
- * @author Mithilesh Ravindran
  *
+ * @author Mithilesh Ravindran
  */
 public class TwitterStatisticsRunner {
 
@@ -20,7 +19,7 @@ public class TwitterStatisticsRunner {
 
         String tweetWordsToTrack = System.getProperty("tracking.keywords", "bieber");
         int thresholdMessages = getIntProperty("tracking.limit", 5);
-        int maxTrackingTime = getIntProperty("tracking.timeoutseconds", 3);
+        int maxTrackingTime = getIntProperty("tracking.timeoutseconds", 30);
 
         application.startTracking(tweetWordsToTrack, thresholdMessages, maxTrackingTime);
         application.printMessagesGroupedByAuthor();
